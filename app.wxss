@@ -8,3 +8,28 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+page {
+	width: 100%;
+	height: 100%;
+}
+.flex {
+	display: flex;
+}
+.flex-a-c {
+	align-items: center;
+}
+.flex-j-c {
+	justify-content: center;
+}
+.flex-a-fe {
+	align-items: flex-end;
+}
+.flex-j-sa {
+	justify-content: space-around;
+}
+.flex-j-sb {
+	justify-content: space-between;
+}
+.flex-d-c {
+	flex-direction: column;
+}

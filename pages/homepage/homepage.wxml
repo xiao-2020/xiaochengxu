@@ -1,0 +1,12 @@
+<view class="homepage">
+	<image class="homebg" src='../../images/bg.png' background-size="cover"></image>
+	<image class="homebg" src='../../images/test.png' background-size="contain"></image>
+	<view class='cont flex flex-d-c flex-a-c flex-j-sb'>
+		<view class='title'></view>
+		<view class='picker-zone'></view>
+		<view class='startbtn'></view>
+	</view>
+	<canvas id='canvas' style="width: 300px; height: 200px;" canvas-id="canvas">
+	
+	</canvas>
+</view>
