@@ -5,13 +5,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -19,9 +12,30 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
+							// 可以将 res 发送给后台解码出 unionId
+							this.globalData.userInfo = res.userInfo
+							// 登录
+							wx.login({
+								success: res => {
+									// 发送 res.code 到后台换取 openId, sessionKey, unionId
+									if (res.code) {
+										wx.request({
+											url: 'https://secret.hinmu.com/home/index/get_wx_userinfo',
+											method:'POST',
+											data: {
+												code: res.code,
+												avatarUrl: this.globalData.userInfo.avatarUrl,
+												nickname: this.globalData.userInfo.nickName,
+											},
+											success:(res) => {
+												// 存入登陆状态
+												this.globalData.userInfo.userId = res.id
+												this.globalData.isLogin = true
+											}
+										})
+									}
+								}
+							})
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -29,11 +43,67 @@ App({
               }
             }
           })
-        }
+        } else {
+					wx.authorize({
+						scope: 'scope.userInfo',
+						success(res) {
+							wx.getUserInfo({
+								success: res => {
+									// 可以将 res 发送给后台解码出 unionId
+									this.globalData.userInfo = res.userInfo
+									// 登录
+									wx.login({
+										success: res => {
+											// 发送 res.code 到后台换取 openId, sessionKey, unionId
+											if (res.code) {
+												wx.request({
+													url: 'https://secret.hinmu.com/home/index/get_wx_userinfo',
+													data: {
+														code: res.code,
+														avatarUrl: this.globalData.userInfo.avatarUrl,
+														nickname: this.globalData.userInfo.nickName,
+													},
+													success:(res) => {
+														// 存入登陆状态
+														this.globalData.isLogin = true
+													}
+												})
+											}
+										}
+									})
+									// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+									// 所以此处加入 callback 以防止这种情况
+									if (this.userInfoReadyCallback) {
+										this.userInfoReadyCallback(res)
+									}
+								}
+							})
+						}
+					})
+				}
       }
     })
+
+		// 下载 图片
+		this.downloadFile()
   },
+	downloadFile() {
+		return new Promise((resolve, reject) => {
+			wx.downloadFile({
+				url: 'https://secret.hinmu.com/Uploads/static/bg_content.png',
+				success: (res) => {
+					this.globalData.baseImg = res.tempFilePath;
+					resolve()
+				},
+				fail() {
+					reject('下载失败')
+				}
+			})
+		})
+	},
   globalData: {
-    userInfo: null
+    userInfo: null,
+		isLogin: false,
+		baseImg: null
   }
 })

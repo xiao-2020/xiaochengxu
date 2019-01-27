@@ -1,0 +1,7 @@
+<view class="detail-box">
+	<view wx:if="{{isReady}}">正在加载...</view>
+	<view wx:else>
+	</view>
+	<canvas id='canvas' style='width:637px;height:369px' canvas-id='canvas'></canvas>
+	<image src="{{imgSrc}}" background-size="cover"></image>
+</view>

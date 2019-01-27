@@ -1,12 +1,22 @@
 <view class="homepage">
 	<image class="homebg" src='../../images/bg.png' background-size="cover"></image>
-	<image class="homebg" src='../../images/test.png' background-size="contain"></image>
-	<view class='cont flex flex-d-c flex-a-c flex-j-sb'>
+	<view class='cont flex flex-d-c flex-a-c flex-j-c'>
 		<view class='title'></view>
-		<view class='picker-zone'></view>
-		<view class='startbtn'></view>
+		<view class='picker-zone'>
+			 <picker
+					class='picker'
+					mode="date"
+					value="{{date}}"
+					start="{{startDate}}"
+					end="{{endDate}}"
+					bindchange="bindDateChange"
+				>
+					<view class='picker pickerplaceholder flex flex-a-c flex-j-c' wx:if="{{!date}}">请输入您的出生日期</view>
+					<view wx:else class="picker flex flex-a-c flex-j-c">{{date}}</view> 
+				</picker>
+		</view>
+		<view class='startbtn flex flex-a-c flex-j-c' bindtap="go">
+		<image class="startbg" src='../../images/anniu2.png' background-size="cover"></image>
+		立即测算</view>
 	</view>
-	<canvas id='canvas' style="width: 300px; height: 200px;" canvas-id="canvas">
-	
-	</canvas>
 </view>
