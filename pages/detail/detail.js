@@ -9,6 +9,8 @@ Page({
 		user: {}, // 用户信息
 		isReady: false, // 监听页面逻辑是否处理完成
 		date: '', // 用户填写的生日
+    canvasWidth: 637,
+    canvasHeight: 369,
 		pos: {
 			a: {
 				x: 341,
@@ -214,18 +216,24 @@ Page({
 			})
 			await new Promise((resolve, reject) => {
 				ctx.draw(true, () => {
-					console.log('ok')
 					resolve()
 				})
 			})
+      
 			let ratio = 369 / 637
 			wx.getSystemInfo({
 				success: res => {
+          console.log(res.screenWidth, res.pixelRatio)
+          // this.setData({
+          //   canvasScale: res.screenWidth / 637
+          // })
 					wx.canvasToTempFilePath({
 						x: 0,
 						y: 0,
-						destWidth: res.screenWidth * res.pixelRatio,
-						destHeight: res.screenWidth * ratio * res.pixelRatio,
+            width: 637,
+            height: 369,
+            destWidth: 637 / res.pixelRatio,
+            destHeight: 637 / res.pixelRatio * ratio,
 						canvasId: 'canvas',
 						success: async res => {
 							console.log(res.tempFilePath)

@@ -19,4 +19,7 @@
 		<image class="startbg" src='../../images/anniu2.png' background-size="cover"></image>
 		立即测算</view>
 	</view>
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+  获取用户信息
+</button>
 </view>

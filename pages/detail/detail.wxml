@@ -35,7 +35,11 @@
 		<!-- 炫耀结果btn -->
 		<view class='share-result'>炫耀结果</view>
 	</view>
+<<<<<<< HEAD
 	<view class='reback'></view>
 	<canvas id='canvas' style='width:637px;height:369px' canvas-id='canvas'></canvas>
+=======
+	<canvas id='canvas'  style='width:637px;height:369px;' canvas-id='canvas'></canvas>
+>>>>>>> 2b94e718a0bf3a7cc823c080a9578ca7090fc8cb
 	<image src="{{imgSrc}}" background-size="cover"></image>
 </view>
