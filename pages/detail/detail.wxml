@@ -1,7 +1,41 @@
 <view class="detail-box">
-	<view wx:if="{{isReady}}">正在加载...</view>
-	<view wx:else>
+	<view class='birthday'>{{userBirthday}}</view>
+	<view class='label'>生命密码解析</view>
+	<view class='cont-zone'>
+		<!-- 用户头像昵称 和 标签 -->
+		<view class='user-info flex flex-a-c'>
+			<image class='header' src='{{avatarUrl}}'></image>
+			<view class='info flex flex-d-c flex-j-sa'>
+				<view class='character'>{{user.nickname}}</view>
+				<view class='labels-box'>
+					<view class='label-cell' wx:for="{{user.labels}}" wx:key="{{index}}">{{item}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- 用户性格简介 -->
+		<view class='character-brief-box'>
+			
+		</view>
+		<!-- 生命密码图表 -->
+		<view class='character-echars-box'>
+		
+		</view>
+		<!-- 性格特征 -->
+		<view class='character-detail-box'>
+		
+		</view>
+		<!-- 优劣分析 -->
+		<view class='character-analy-box'>
+		
+		</view>
+		<!-- 人生目标 -->
+		<view class='character-objective-box'>
+		
+		</view>
+		<!-- 炫耀结果btn -->
+		<view class='share-result'>炫耀结果</view>
 	</view>
+	<view class='reback'></view>
 	<canvas id='canvas' style='width:637px;height:369px' canvas-id='canvas'></canvas>
 	<image src="{{imgSrc}}" background-size="cover"></image>
 </view>

@@ -1,7 +1,7 @@
 <view class="homepage">
 	<image class="homebg" src='../../images/bg.png' background-size="cover"></image>
 	<view class='cont flex flex-d-c flex-a-c flex-j-c'>
-		<view class='title'></view>
+		<view class='title'>生命密码测算</view>
 		<view class='picker-zone'>
 			 <picker
 					class='picker'

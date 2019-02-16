@@ -6,6 +6,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		user: {}, // 用户信息
 		isReady: false, // 监听页面逻辑是否处理完成
 		date: '', // 用户填写的生日
 		pos: {
