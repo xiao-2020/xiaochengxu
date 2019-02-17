@@ -1,3 +1,5 @@
+const app = getApp()
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js'
 Page({
 
 	/**
@@ -14,7 +16,11 @@ Page({
 			date: e.detail.value
 		})
 	},
-	go() {
+	async onGotUserInfo(e) {
+		// 进来之前先吊用一次 来获取授权 之后的用户信息 如果有信息了就直接跳过
+		if(!app.globalData.userInfo) {
+			await app.getUserInfo(e.detail)
+		}
 		if(!this.data.date) {
 			wx.showModal({
 				title: '提示',

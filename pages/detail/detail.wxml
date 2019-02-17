@@ -1,5 +1,5 @@
 <view class="detail-box">
-	<view class='birthday'>{{userBirthday}}</view>
+	<view class='birthday'>{{date || '2019年9月12日'}}</view>
 	<view class='label'>生命密码解析</view>
 	<view class='cont-zone'>
 		<!-- 用户头像昵称 和 标签 -->
@@ -18,6 +18,8 @@
 		</view>
 		<!-- 生命密码图表 -->
 		<view class='character-echars-box'>
+			<view class='title'>生命密码图表</view>
+			<canvas id='canvas' style='width:{{canvasWidth}}px;height:{{canvasHeight}}px' canvas-id='canvas'></canvas>
 		
 		</view>
 		<!-- 性格特征 -->
@@ -35,11 +37,6 @@
 		<!-- 炫耀结果btn -->
 		<view class='share-result'>炫耀结果</view>
 	</view>
-<<<<<<< HEAD
 	<view class='reback'></view>
-	<canvas id='canvas' style='width:637px;height:369px' canvas-id='canvas'></canvas>
-=======
-	<canvas id='canvas'  style='width:637px;height:369px;' canvas-id='canvas'></canvas>
->>>>>>> 2b94e718a0bf3a7cc823c080a9578ca7090fc8cb
-	<image src="{{imgSrc}}" background-size="cover"></image>
+	<!-- <image src="{{imgSrc}}" background-size="cover"></image> -->
 </view>

@@ -192,7 +192,7 @@ Page({
 	 */
 	onLoad: async function (options) {
 		let date = options.date,
-			userId = app.globalData.userInfo.userId,
+			// userId = app.globalData.userInfo.userId,
 			ctx = wx.createCanvasContext('canvas')
 		this.setData({
 			date: date
