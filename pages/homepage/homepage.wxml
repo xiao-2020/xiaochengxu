@@ -21,7 +21,4 @@
 			立即测算
 		</view>
 	</view>
-  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
-  获取用户信息
-</button>
 </view>

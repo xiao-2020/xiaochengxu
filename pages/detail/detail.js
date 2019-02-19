@@ -6,11 +6,16 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		user: {}, // 用户信息
+		user: {
+			labels: ['领导','创造','自信']
+		}, // 用户信息
 		isReady: false, // 监听页面逻辑是否处理完成
 		date: '', // 用户填写的生日
     canvasWidth: 637,
     canvasHeight: 369,
+		canvasScale: 1,
+		characterEcharsBoxHeight: 'aauto',
+		avatarUrl: '',
 		pos: {
 			a: {
 				x: 341,
@@ -191,11 +196,13 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: async function (options) {
+		console.log(app.globalData)
 		let date = options.date,
 			// userId = app.globalData.userInfo.userId,
 			ctx = wx.createCanvasContext('canvas')
 		this.setData({
-			date: date
+			date: date,
+			// avatarUrl: app.globalData.userInfo.avatarUrl
 		})
 		// 获取页面数据
 		this.getPageData()
@@ -224,6 +231,12 @@ Page({
 			wx.getSystemInfo({
 				success: res => {
           console.log(res.screenWidth, res.pixelRatio)
+					let scale = (res.screenWidth - 60) / 637
+					this.setData({
+						canvasScale: scale,
+						characterEcharsBoxHeight: scale * 369 + 50
+					});
+					return;
           // this.setData({
           //   canvasScale: res.screenWidth / 637
           // })
@@ -254,7 +267,7 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {
-		
+		console.log(app.globalData.userInfo)
 	},
 
 	/**

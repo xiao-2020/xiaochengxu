@@ -21,7 +21,7 @@
 	line-height: 40rpx;
 	margin-top: 30rpx;
 }
-.detail-box .label {
+.detail-box .titname {
 	width: 246rpx;
 	height: 60rpx;
 	text-align: center;
@@ -39,18 +39,78 @@
 	width: calc(100% - 60rpx);
 	padding: 0 28rpx 0 32rpx;
 }
-
-
-
+.user-info {
+	padding-top: 58rpx;
+}
+.user-info image {
+	width: 122rpx;
+	height: 122rpx;
+	border-radius: 50%;
+	margin-right: 40rpx;
+}
+.user-info .info {
+	height: 94rpx;
+}
+.user-info .character {
+	font-size: 36rpx;
+	color: #5690DA;
+	font-weight: bold;
+	line-height: 1;
+}
+.user-info .label-cell {
+	height: 38rpx;
+	margin-right: 10rpx;
+	background:  linear-gradient(to right, #FEAEB1, #F69398);
+	border-radius: 19rpx;
+	padding: 0 15rpx;
+	color: #fff;
+	font-size: 24rpx;
+}
+.character-brief-box {
+	margin-top: 66rpx;
+	font-size: 28rpx;
+	padding-bottom: 22rpx;
+}
+.character-brief-box > view {
+	color: #25242E;
+}
+.character-brief-box > view .label{
+	font-weight: bold;
+	flex-shrink: 0;
+}
+.character-brief-box .frontage-box .label{
+	color: #F7707F;
+}
+.character-brief-box .backage-box {
+	margin: 10rpx 0;
+}
+.character-brief-box .backage-box .label{
+	color: #5690DA;
+}
+.character-brief-box .afraidof-box .label{
+	color: #FF9A4E;
+}
 .character-echars-box {
 	position: relative;
 	width: 100%;
-	min-height: 400px;
+	padding-top: 44rpx;
+	border-top: 1rpx solid #eee;
+}
+.title {
+	color: #5690DA;
+	font-size: 35rpx;
+	font-weight: bold;
+	margin-bottom: 40rpx;
 }
 .character-echars-box #canvas {
-	position: absolute;
-	top: 0;
-	left: 0;
   transform-origin: top left;
-	/* visibility: hidden; */
+	border: none;
+}
+
+.detail-box .share-result {
+	height: 98rpx;
+	font-size: 28rpx;
+	color: #fff;
+	background-color: #5690DA;
+	border-radius: 0 0 15rpx 15rpx;
 }

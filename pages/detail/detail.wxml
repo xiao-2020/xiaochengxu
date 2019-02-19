@@ -1,42 +1,55 @@
 <view class="detail-box">
 	<view class='birthday'>{{date || '2019年9月12日'}}</view>
-	<view class='label'>生命密码解析</view>
+	<view class='titname'>生命密码解析</view>
 	<view class='cont-zone'>
 		<!-- 用户头像昵称 和 标签 -->
 		<view class='user-info flex flex-a-c'>
-			<image class='header' src='{{avatarUrl}}'></image>
+			<image class='header' src='{{avatarUrl || "../../images/logo.png"}}'></image>
 			<view class='info flex flex-d-c flex-j-sa'>
-				<view class='character'>{{user.nickname}}</view>
-				<view class='labels-box'>
-					<view class='label-cell' wx:for="{{user.labels}}" wx:key="{{index}}">{{item}}</view>
+				<view class='character'>{{user.nickname || '1号 好强性格'}}</view>
+				<view class='labels-box flex flex-a-c'>
+					<view class='label-cell flex flex-a-c flex-j-c' wx:for="{{user.labels}}" wx:key="{{index}}">{{item}}</view>
 				</view>
 			</view>
 		</view>
 		<!-- 用户性格简介 -->
-		<view class='character-brief-box'>
-			
+		<view class='character-brief-box flex flex-d-c flex-j-sb'>
+			<view class='frontage-box flex'>
+				<view class='label'>正面：</view>
+				<view class='cont'>幸运 精密分析力 博学 求知欲强 神秘 安静 寻找真理 人缘</view>
+			</view>
+			<view class='backage-box flex'>
+				<view class='label'>负面：</view>
+				<view class='cont'>冷漠 与人保持距离 孤僻 疑心重 缺乏同情心 刚愎自用</view>
+			</view>
+			<view class='afraidof-box flex'>
+				<view class='label'>恐惧：</view>
+				<view class='cont'>犯错 无知 被欺骗</view>
+			</view>
 		</view>
 		<!-- 生命密码图表 -->
-		<view class='character-echars-box'>
+		<view class='character-echars-box' style='height:{{characterEcharsBoxHeight}}px'>
 			<view class='title'>生命密码图表</view>
-			<canvas id='canvas' style='width:{{canvasWidth}}px;height:{{canvasHeight}}px' canvas-id='canvas'></canvas>
-		
+			<canvas id='canvas' style='width:{{canvasWidth}}px;height:{{canvasHeight}}px;transform:scale({{canvasScale}})' canvas-id='canvas'></canvas>
 		</view>
 		<!-- 性格特征 -->
 		<view class='character-detail-box'>
-		
+			<view class='title'>性格特征</view>
+			<view class='detailcont'></view>
 		</view>
 		<!-- 优劣分析 -->
 		<view class='character-analy-box'>
-		
-		</view>
+			<view class='title'>优劣分析</view>
+			<view class='detailcont'></view>
+		</view>	
 		<!-- 人生目标 -->
 		<view class='character-objective-box'>
-		
+			<view class='title'>人生目标</view>
+			<view class='detailcont'></view>
 		</view>
 		<!-- 炫耀结果btn -->
-		<view class='share-result'>炫耀结果</view>
 	</view>
+	<view class='share-result flex flex-a-c flex-j-c'>炫耀结果</view>
 	<view class='reback'></view>
 	<!-- <image src="{{imgSrc}}" background-size="cover"></image> -->
 </view>
