@@ -95,6 +95,7 @@
 	width: 100%;
 	padding-top: 44rpx;
 	border-top: 1rpx solid #eee;
+	overflow:hidden;
 }
 .title {
 	color: #5690DA;

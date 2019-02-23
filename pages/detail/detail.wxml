@@ -1,3 +1,5 @@
+<import src="../../wxParse/wxParse.wxml"/>
+
 <view class="detail-box">
 	<view class='birthday'>{{date || '2019年9月12日'}}</view>
 	<view class='titname'>生命密码解析</view>
@@ -35,17 +37,23 @@
 		<!-- 性格特征 -->
 		<view class='character-detail-box'>
 			<view class='title'>性格特征</view>
-			<view class='detailcont'></view>
+			<view class='detailcont'>
+				<template is="wxParse" data="{{wxParseData:characterdetail.nodes}}"/>
+			</view>
 		</view>
 		<!-- 优劣分析 -->
 		<view class='character-analy-box'>
 			<view class='title'>优劣分析</view>
-			<view class='detailcont'></view>
+			<view class='detailcont'>
+				<template is="wxParse" data="{{wxParseData:characteranaly.nodes}}"/>
+			</view>
 		</view>	
 		<!-- 人生目标 -->
 		<view class='character-objective-box'>
 			<view class='title'>人生目标</view>
-			<view class='detailcont'></view>
+			<view class='detailcont'>
+				<template is="wxParse" data="{{wxParseData:characterobjective.nodes}}"/>
+			</view>
 		</view>
 		<!-- 炫耀结果btn -->
 	</view>

@@ -1,11 +1,19 @@
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js'
 const app = getApp()
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		// 性格特征
+		characterdetail: '<p>\r\n\t7号是世故型性格的人，顾名思义是善于交际，处事\r\n<\/p>\r\n<p>\r\n\t圆滑，非常有人缘，朋友多的人，他们精明能干，在\r\n<\/p>\r\n<p>\r\n\t人际关系上左右逢源，这种性格的人大多是权力型的\r\n<\/p>\r\n<p>\r\n\t人，他们一旦获得了权力，行为方式与指导思想就比\r\n<\/p>\r\n<p>\r\n\t较谨慎，所以不会是开拓型领导，他们是博学的，天\r\n<\/p>\r\n<p>\r\n\t生懂得提出和分析问题，如果不利用这种天赋就会觉\r\n<\/p>\r\n<p>\r\n\t得非常沮丧，如果他们寻找到真理的时候却又不敢面\r\n<\/p>\r\n<p>\r\n\t对现实，生活就会变得虚伪不真实，永远没有幸福可\r\n<\/p>\r\n<p>\r\n\t言。\r\n<\/p>',
+		// 优劣分析
+		characteranaly:'<p>\r\n\t7号人应该保持好奇心和求知欲，不断分析和质疑周边\r\n<\/p>\r\n<p>\r\n\t的大小事，他们应该保持开放的心胸，用于尝试新事\r\n<\/p>\r\n<p>\r\n\t物认识新朋友，与人分享新观念，并在心灵层次修持\r\n<\/p>\r\n<p>\r\n\t进取，许多7号人穷其一生想不透自己的人生到底出\r\n<\/p>\r\n<p>\r\n\t了什么差错，总觉得自己被环境困住，始终对现状感\r\n<\/p>\r\n<p>\r\n\t到无奈。想要获得快乐踏实，7号人必须先接受事实\r\n<\/p>\r\n<p>\r\n\t真相面对问题，采取适切的行动解决问题。\r\n<\/p>',
+		// 人生目标
+		characterobjective:'<p>\r\n\t7号人应该保持好奇心和求知欲，不断分析和质疑周边\r\n<\/p>\r\n<p>\r\n\t的大小事，他们应该保持开放的心胸，用于尝试新事\r\n<\/p>\r\n<p>\r\n\t物认识新朋友，与人分享新观念，并在心灵层次修持\r\n<\/p>\r\n<p>\r\n\t进取，许多7号人穷其一生想不透自己的人生到底出\r\n<\/p>\r\n<p>\r\n\t了什么差错，总觉得自己被环境困住，始终对现状感\r\n<\/p>\r\n<p>\r\n\t到无奈。想要获得快乐踏实，7号人必须先接受事实\r\n<\/p>\r\n<p>\r\n\t真相面对问题，采取适切的行动解决问题。\r\n<\/p>',
+		// 
 		user: {
 			labels: ['领导','创造','自信']
 		}, // 用户信息
@@ -267,7 +275,9 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {
-		console.log(app.globalData.userInfo)
+		WxParse.wxParse('characterdetail', 'html', this.data.characterdetail, this, 5);
+		WxParse.wxParse('characteranaly', 'html', this.data.characteranaly, this, 5);
+		WxParse.wxParse('characterobjective', 'html', this.data.characterobjective, this, 5);
 	},
 
 	/**
